@@ -135,19 +135,16 @@ public class Main extends Application {
 	
 	// 서버 연결을 확인하는 메소드
 	public void connect(Stage primaryStage) {
-		for (int i = 0; i < 50; i++) {
+		for (int i = 0; i < 1000; i++) {
 			
 			button1 = new Button("채팅방 입장하기");
 			if(socket == null) {
 				label1 = new Label("서버 대기 중");
-				System.out.println("서버 대기 중");
 				button1.setDisable(true);
-				System.out.println(socket);
 				//break;
 				
 			}else {
 				label1 = new Label("입장 가능합니다.");
-				System.out.println("입장 가능");
 				button1.setDisable(false);
 				//break;
 			}
@@ -185,12 +182,16 @@ public class Main extends Application {
 		// 여백
 		hbox.setSpacing(5);
 		
+		
 		// 사용자 이름이 들어갈 수 있는 텍스트 공간
-		TextField userName = new TextField();
-		userName.setPrefWidth(130); // 너비
-		userName.setPromptText("닉네임을 입력하세요.");
+		String client = socket.getRemoteSocketAddress() + " ";
+		String clientNum = client.substring(11, 13);
+		//TextField userName = new TextField();
+		//userName.setPromptText("   ");
 		// HBox내부에 TextField가 항상 출력되도록.
-		HBox.setHgrow(userName, Priority.ALWAYS);
+		//HBox.setHgrow(userName, Priority.ALWAYS);
+		Label userName = new Label(clientNum);
+		userName.setPrefWidth(50); // 너비
 		
 
 		Button exitButton = new Button("나가기");
@@ -199,6 +200,7 @@ public class Main extends Application {
 			
 			System.out.println("stop client");
 			stopClient();
+			
 		});
 		Region region1 = new Region();
 		HBox.setHgrow(region1,  Priority.ALWAYS);
@@ -220,7 +222,7 @@ public class Main extends Application {
 
 		input.setOnAction(event ->{
 			// 서버로 어떠한 메시지를 전달할 수 있도록.
-			send(userName.getText() + ": " + input.getText() +"\n");
+			send(userName.getText() + " : " + input.getText() + "\n");
 			input.setText(""); // 전송했으니까 전송칸 비우기
 			input.requestFocus(); // 다시 어떠한 메시지를 전송할 수 있도록 포커싱을 설정
 		});
