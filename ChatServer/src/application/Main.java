@@ -6,6 +6,7 @@ import java.net.Socket;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Formatter;
 import java.util.Iterator;
 import java.util.Vector;
 import java.util.concurrent.ExecutorService;
@@ -34,6 +35,9 @@ public class Main extends Application {
 	ServerSocket serverSocket;
 	LocalDate today = LocalDate.now(); 
 	LocalTime now = LocalTime.now();
+	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+	String formatedNow = now.format(formatter);
+	
 
 	// 서버를 구동시켜서 클라이언트의 연결을 기다리는 메소드.
 	// parameters : 어떠한 아이피로,어떠한 포트를 열어서 클라이언트와 통신을 할 것인지.
@@ -71,7 +75,7 @@ public class Main extends Application {
 						// 클라이언트가 접속을 했다면, 클라이언트 배열에 새롭게 접속한 클라이언트를 추가.
 						clients.add(new Client(socket)); 
 						
-						System.out.println("[클라이언트 접속] " + today + " " + now);
+						System.out.println("[클라이언트 접속] " + today + " " + formatedNow);
 					} catch (Exception e) {
 						//오류가 발생했다면 서버를 작동중지시키고 break로 빠져나온다.
 						if(!serverSocket.isClosed()) {
