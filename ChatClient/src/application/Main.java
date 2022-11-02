@@ -188,6 +188,7 @@ public class Main extends Application {
 		String clientNum = client.substring(11, 13);
 		Label userName = new Label(clientNum);
 		userName.setPrefWidth(50); // 너비
+		userName.setAlignment(Pos.BASELINE_CENTER);
 		
 
 		Button exitButton = new Button("나가기");
