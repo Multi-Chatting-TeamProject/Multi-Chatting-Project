@@ -76,7 +76,7 @@ public class Main extends Application {
 						clients.add(new Client(socket)); 
 						
 						String client = socket.getRemoteSocketAddress() + " ";
-						String clientNum = client.substring(11, 13);
+						String clientNum = client.substring(11, 14);
 						
 						System.out.println("[클라이언트 접속] ("+ clientNum + ") " + today + " " + formatedNow);
 					} catch (Exception e) {
