@@ -41,7 +41,7 @@ public class Client {
 						
 						// buffer에서 전달받은 내용을 message변수에 담아서 출력할 수 있도록 하는것, 한글을 포함하는 UTF-8로 인코딩.
 						String message = new String(buffer, 0, length, "UTF-8");
-						System.out.println("[메시지 수신 성공] " + message);
+						System.out.print("[메시지 수신 성공] " + message);
 						
 						
 						// 단순하게 메시지를 전달만 받는 것이 아니라, 전달받은 메시지를 다른 클라이언트에게도 보낼 수 있도록 만든다.
