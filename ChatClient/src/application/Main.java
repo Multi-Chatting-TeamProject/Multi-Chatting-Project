@@ -185,7 +185,7 @@ public class Main extends Application {
 		
 		// 사용자 이름이 들어갈 수 있는 텍스트 공간
 		String client = socket.getLocalSocketAddress() + " ";
-		String clientNum = client.substring(11, 13);
+		String clientNum = client.substring(11, 14);
 		Label userName = new Label(clientNum);
 		userName.setPrefWidth(50); // 너비
 		userName.setAlignment(Pos.BASELINE_CENTER);
