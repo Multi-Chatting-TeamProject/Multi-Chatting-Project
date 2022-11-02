@@ -75,7 +75,10 @@ public class Main extends Application {
 						// 클라이언트가 접속을 했다면, 클라이언트 배열에 새롭게 접속한 클라이언트를 추가.
 						clients.add(new Client(socket)); 
 						
-						System.out.println("[클라이언트 접속] " + today + " " + formatedNow);
+						String client = socket.getRemoteSocketAddress() + " ";
+						String clientNum = client.substring(11, 13);
+						
+						System.out.println("[클라이언트 접속] ("+ clientNum + ") " + today + " " + formatedNow);
 					} catch (Exception e) {
 						//오류가 발생했다면 서버를 작동중지시키고 break로 빠져나온다.
 						if(!serverSocket.isClosed()) {
