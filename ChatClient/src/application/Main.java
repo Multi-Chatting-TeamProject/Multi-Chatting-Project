@@ -189,6 +189,7 @@ public class Main extends Application {
 		Label userName = new Label(clientNum);
 		userName.setPrefWidth(50); // 너비
 		userName.setAlignment(Pos.BASELINE_CENTER);
+		userName.setStyle("-fx-font-size:20");
 		
 
 		Button exitButton = new Button("나가기");
