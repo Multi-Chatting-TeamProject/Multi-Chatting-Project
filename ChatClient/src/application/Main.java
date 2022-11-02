@@ -186,10 +186,6 @@ public class Main extends Application {
 		// 사용자 이름이 들어갈 수 있는 텍스트 공간
 		String client = socket.getRemoteSocketAddress() + " ";
 		String clientNum = client.substring(11, 13);
-		//TextField userName = new TextField();
-		//userName.setPromptText("   ");
-		// HBox내부에 TextField가 항상 출력되도록.
-		//HBox.setHgrow(userName, Priority.ALWAYS);
 		Label userName = new Label(clientNum);
 		userName.setPrefWidth(50); // 너비
 		
@@ -238,7 +234,7 @@ public class Main extends Application {
 		});
 		
 		
-		// hbox에 4개의 텍스트박스가 추가될 수 있도록.
+		// hbox에 텍스트박스가 추가될 수 있도록.
 		hbox.getChildren().addAll(region2, exitButton);
 				
 		// borderPane 상단에 위치 
