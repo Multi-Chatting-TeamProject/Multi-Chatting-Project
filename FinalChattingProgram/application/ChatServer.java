@@ -188,6 +188,8 @@ public class ChatServer extends Application {
 			} else {
 				// 버튼의 상태가 '종료하기' 였으므로 서버를 종료해주고, 버튼 text를 변경해준다.
 				stopServer();
+				// 다시 ip 초기화
+				IP = "192.168.0.";
 				Platform.runLater(()->{
 					String message = String.format("[서버 종료]\n",IP, port);
 					textArea.appendText(message);
